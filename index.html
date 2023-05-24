@@ -1,8 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Domracz - Homepage</title>
-    </head>
-    <body>
-        <a>hello</a>
-    </body>
+<head>
+  <title>Zoom Access Token</title>
+  <script>
+    // Get the access token from the URL query parameters
+    function getAccessToken() {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      return urlParams.get('access_token');
+    }
+
+    // Update the content of the 'token' element with the access token
+    function displayAccessToken() {
+      const accessToken = getAccessToken();
+      const tokenElement = document.getElementById('token');
+      tokenElement.textContent = accessToken;
+    }
+  </script>
+</head>
+<body onload="displayAccessToken()">
+  <h1>Zoom Access Token:</h1>
+  <p id="token">Loading...</p>
+</body>
+</html>
